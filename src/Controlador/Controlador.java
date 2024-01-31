@@ -70,6 +70,34 @@ public class Controlador {
         return "";
     }
     
+     public String consultaNumCoches(){
+        try {
+            if (contexto == null) {
+                crearBD();
+            }
+            String xq = leerXQueryDesdeArchivo("src/script/consultaNumCoches.xq");
+            String resultado = new XQuery(xq).execute(contexto);
+            return resultado;
+        } catch (BaseXException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+     
+      public String consultaMaxPrecio(){
+        try {
+            if (contexto == null) {
+                crearBD();
+            }
+            String xq = leerXQueryDesdeArchivo("src/script/consultaPrecioMax.xq");
+            String resultado = new XQuery(xq).execute(contexto);
+            return resultado;
+        } catch (BaseXException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
     public static String leerXQueryDesdeArchivo(String rutaArchivo) {
         try {
             // Lee todo el contenido del archivo como una cadena de texto

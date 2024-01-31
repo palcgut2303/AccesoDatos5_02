@@ -1,4 +1,2 @@
-
-let $coches := //coche
- let $cocheMasCaro := $coches[not($coches/precio < .//precio)]  
- return data($cocheMasCaro/precio)
+for $b in //coche[ciudad = 'Madrid']
+return data($b/marca)
