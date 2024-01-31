@@ -1,2 +1,2 @@
 let $b := //coche
-return max($b/precio)
+return count($b/precio)
